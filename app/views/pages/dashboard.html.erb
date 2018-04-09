@@ -1,0 +1,22 @@
+<h1>Panel de Control</h1>
+<h3>Lista de Usuarios</h3>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Fecha Creación</th>
+    <th colspan="2">Opciones</th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.role %></td>
+    <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
+    <td>Editar Rol</td>
+    <td><%= link_to "Eliminar", destroy_user_path(user), method: :delete %></td>
+  </tr>
+  <% end %>
+
+</table>
